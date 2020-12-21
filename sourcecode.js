@@ -658,7 +658,6 @@ function boss() {
                     if (posx < x) elemcon.style.backgroundImage = "url('duckdamr.png')";
                     if (posx >= x) elemcon.style.backgroundImage = "url('duckdaml.png')";
                     elem.style.backgroundImage = "url('bossdam.png')";
-                    var lig = document.getElementById("bosslight");
                     //
                     allowtohit = 1;
                     clearInterval(id);
@@ -670,7 +669,7 @@ function boss() {
                         clearInterval(hithim);
                     }
                     function nowhithim() {
-                        lig.style.left = 1500 + "px";
+                        lig.style.top = -1500 + "px";
                         if (highscore > checkhealth) {
                             allowshiphealthtodrop = 5;
                             if (highscore === 5) {
