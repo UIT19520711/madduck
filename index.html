@@ -1,155 +1,105 @@
 ﻿<!DOCTYPE html>
-<html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
+    <meta charset="utf-8" />
     <link rel="icon" href="favicon.png">
-<style>
-    body{
-       background-color: black;
-       overflow: hidden;
-       background-size: cover;
-    }
-    #spaceship{
-        height: 50px;
-        width: 50px;             
-        position: absolute;
-        top: 500px;
-        left: 705px;
-        background-image : url("space.gif");
-        background-size: contain;
-    }
-    #obs1, #obs2, #obs3, #obs4, #obs5, #obs6, #obs7, #obs8{
-        background-image: url("asteroid.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        border-radius: 0px 40px 0px 20px;
-        position: absolute;
-        z-index:-8;
-    }
-    #bossy{
-        width:50px;
-        height: 50px;
-        position: absolute;
-        background-image: url("duckr.gif");
-        top: 152px;
-        left: 658px;
-    }   
-    #boss{
-        width: 104px;
-        height: 39px;
-        background-image: url("boss.gif");
-        background-size: contain;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 200px;
-        left: 630px;
-    }
-    #bosslight{
-        width: 82px;
-        height: 39px;
-        position: absolute;
-        top: 200px;
-        left: 640px;
-        box-shadow: 0 0 30px #0010ff, 0px 0px  100px #0010ff, 0px 0px 50px #0010ff;
-    }
-   #lava{
-       position: absolute;
-       background-image: url("lavafloor.gif");
-       background-size: contain;
-       width: 1450px;
-       height: 300px;
-       top: 339px;
-       left: 0;
-   }
-   #lavalight{
-       position: absolute;
-       top: 600px;
-       left: -20px;
-       width: 1470px;
-       height: 39px;
-       box-shadow: 0 0 50px #ff0000, 0px 0  100px #ff0000, 0 0 120px #ff0000;
-   }
-   #highscore{
-       color: #00ff21;
-       font-family: VT323;
-       font-size: 100px;
-       position: absolute;
-       top: 0px;
-       left: 20px;
-       z-index: -9;
-   }
-   #chek{
-       color: red;
-       font-family: VT323;
-       font-size: 50px;
-       position: absolute;
-       top: 80px;
-       left: 130px;
-       z-index: -9;
-   }
-   #amm{
-       color: red;
-       font-family: VT323;
-       font-size: 50px;
-       position: absolute;
-       top: 80px;
-       left: 20px;
-       z-index: -9;
-   }
-   #score{
-       color: red;
-       font-family: VT323;
-       font-size: 50px;
-       position: absolute;
-       top: 135px;       
-       left: 70px;
-       z-index: -9;
-   }
-   #life{
-       color: red;
-       font-family: VT323;
-       font-size: 20px;
-       position: absolute;
-       top: 140px;
-       left: 20px;
-       z-index: -9;
-   }
-   #high{
-       color: #00ff21;
-       font-family: VT323;
-       font-size: 100px;
-       position: absolute;
-       top: 0px;
-       left: 1300px;
-       z-index: -9;
-   }
-</style>
-    </head>
+    <title>Man vs Duck</title>
+    <script>
+        var i = 0;
+        function zzz() {
+            var a = document.getElementById("instruction");
+            var b = document.getElementById("instruct");
+            if (i === 0) {
+                a.style.zIndex = 5;
+                a.style.opacity = 1;
+                b.innerHTML = "Back";
+                i++;
+            }
+            else {
+                a.style.zIndex = -5;
+                a.style.opacity = 0;
+                b.innerHTML = "How to play";
+                i = 0;
+            }
+        }
+    </script>
+    <style>
+        body{
+            background-color: black;
+            overflow: hidden;
+        }
+        #biglogo{
+            background-image: url('logo.png');
+            background-size: contain;
+            height: 200px;
+            width: 800px;
+            position: absolute;
+            top: 30px;
+            left: 250px;
+        }
+        #butt{
+            text-decoration: none;
+            position: absolute;
+            color: black;
+            text-align: center;
+            background-color: red;
+            font-family: VT323;
+            font-size: 40px;
+            top: 280px;
+            left: 555px;
+            width: 200px;
+            height: 50px; 
+            cursor: pointer;         
+        }
+        #butt:hover{
+            background-color: #ac0d0d;
+            color: white;
+        }
+        #instruct{
+            text-decoration: none;
+            position: absolute;
+            color: black;
+            text-align: center;
+            background-color: red;
+            font-family: VT323;
+            font-size: 40px;
+            top: 380px;
+            left: 555px;
+            width: 200px;
+            height: 50px; 
+            cursor: pointer;
+            border: none;
+            z-index: 6;
+            outline: none;
+        }
+        #instruct:hover{
+            background-color: #ac0d0d;
+            color: white;
+        }
+        #instruction{
+            position: absolute;
+            width: 1500px;
+            height: 800px;
+            background-color: black;
+            z-index: -5;
+            font-family: VT323;
+            color: white;
+            font-size: 50px;
+            opacity: 0;
+        }
+    </style>
+</head>
 <body>
-   
-    <div id="lavalight"></div>
-    <div id="lava"></div>
-    <div id="amm">ammo: </div>
-    <div id="chek" class="aaa">8</div>
-    <div id="life">Lives left: </div>
-    <div id="score" class="aaa">3</div>
-    <div id="highscore" class="aaa">0</div>
-    <div id="obs1" class="aaa"></div>
-    <div id="obs2" class="aaa"></div>
-    <div id="obs3" class="aaa"></div>
-    <div id="obs4" class="aaa"></div>
-    <div id="obs5" class="aaa"></div>
-    <div id="obs6" class="aaa"></div>
-    <div id="obs7" class="aaa"></div>
-    <div id="obs8" class="aaa"></div>
-    <div id="bosslight"></div>
-    <div id="boss" class="aaa"></div>
-    <div id="bossy" class="aaa"></div>
-    <div id="explode"></div>
-    <div id="high">0</div>
-    <div id="spaceship"></div>
- <script src = "Keydrown.min.js"></script>   
-  <script src="root.js"></script>
-   
+<div id="biglogo"></div>
+    <a id="butt" href="quackquack.html">Start</a>
+    <button id="instruct" onclick="zzz()">How to play</button>
+    <div id="instruction">
+        -Press the J and K keys alternately to move Dan the Man up.<br />
+        -A and D to move left or right, W to shoot.<br />
+        -Land on Doctor Duck's head to score 1 point.<br />
+        -Ammunition supplies can be found in random "meteors".
+    </div>
 </body>
 </html>

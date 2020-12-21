@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
+    <link rel="icon" href="favicon.png">
+    <title>Quack! Quack!</title>
+<style>
+    body{
+       background-color: black;
+       overflow: hidden;
+       background-size: cover;
+       zoom: 90%;
+    }
+    #spaceship{
+        height: 50px;
+        width: 50px;             
+        position: absolute;
+        top: 500px;
+        left: 705px;
+        background-image : url("space.gif");
+        background-size: contain;
+        border-radius: 15px;
+        z-index: -2
+    }
+    #obs1, #obs2, #obs3, #obs4, #obs5, #obs6, #obs7, #obs8{
+        background-image: url("asteroid.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        border-radius: 0px 40px 0px 20px;
+        position: absolute;
+        z-index:-8;
+    }
+    #bossy{
+        width:50px;
+        height: 50px;
+        position: absolute;
+        background-image: url("duckr.gif");
+        top: 152px;
+        left: 658px;
+    }   
+    #boss{
+        width: 104px;
+        height: 39px;
+        background-image: url("boss.gif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 200px;
+        left: 630px;
+    }
+    #bosslight{
+        width: 82px;
+        height: 39px;
+        position: absolute;
+        top: 200px;
+        left: 640px;
+        box-shadow: 0 0 30px #0010ff, 0px 0px  100px #0010ff, 0px 0px 50px #0010ff;
+        z-index: -1;
+    }
+   #lava{
+       position: absolute;
+       background-image: url("lavafloor.gif");
+       background-size: contain;
+       width: 1450px;
+       height: 300px;
+       top: 339px;
+       left: 0;
+   }
+   #lavalight{
+       position: absolute;
+       top: 600px;
+       left: -20px;
+       width: 1470px;
+       height: 39px;
+       box-shadow: 0 0 50px #ff0000, 0px 0  100px #ff0000, 0 0 120px #ff0000;
+   }
+   #highscore{
+       color: #00ff21;
+       font-family: VT323;
+       font-size: 100px;
+       position: absolute;
+       top: 0px;
+       left: 20px;
+       z-index: -9;
+   }
+   #chek{
+       color: red;
+       font-family: VT323;
+       font-size: 50px;
+       position: absolute;
+       top: 80px;
+       left: 130px;
+       z-index: -9;
+   }
+   #amm{
+       color: red;
+       font-family: VT323;
+       font-size: 50px;
+       position: absolute;
+       top: 80px;
+       left: 20px;
+       z-index: -9;
+   }
+   #score{
+       color: red;
+       font-family: VT323;
+       font-size: 50px;
+       position: absolute;
+       top: 135px;       
+       left: 70px;
+       z-index: -9;
+   }
+   #life{
+       color: red;
+       font-family: VT323;
+       font-size: 20px;
+       position: absolute;
+       top: 140px;
+       left: 20px;
+       z-index: -9;
+   }
+   #high{
+       color: #00ff21;
+       font-family: VT323;
+       font-size: 100px;
+       position: absolute;
+       top: 0px;
+       left: 1300px;
+       z-index: -9;
+   }
+   #endgame{
+       width: 1500px;
+       height: 800px;
+       background-color: black;
+       z-index: 100;
+       position: absolute;
+       top: -5px;
+       left: -10px;
+       color: red;
+       opacity: 0;
+   }#ded{
+       font-size: 200px;
+       font-family: VT323;
+       text-align: center;
+       z-index: 101;    
+       position: absolute;
+       color: red;
+       left: 550px;
+       opacity: 0;
+    }
+    #newhighscore{
+       font-size: 30px;
+       font-family: VT323;
+       z-index: 101;    
+       position: absolute;
+       color: lawngreen;
+       left: 1235px;
+       top: 65px;
+       opacity: 0;
+       white-space: nowrap;
+       animation: blinker 1s linear infinite;
+    }
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    #again{
+            text-decoration: none;
+            position: absolute;
+            color: black;
+            text-align: center;
+            background-color: red;
+            font-family: VT323;
+            font-size: 40px;
+            top: 450px;
+            left: 610px;
+            width: 200px;
+            height: 50px; 
+            cursor: pointer;
+            z-index: 0;
+            opacity: 0; 
+    }
+    #again:hover{
+            background-color: #ac0d0d;
+            color: white;
+        }
+</style>
+    </head>
+<body>
+   
+    <div id="amm">Ammo: </div>
+    <div id="chek" class="aaa">8</div>
+    <div id="life">Lives left: </div>
+    <div id="score" class="aaa">3</div>
+    <div id="highscore" class="aaa">0</div>
+    <div id="obs1" class="aaa"></div>
+    <div id="obs2" class="aaa"></div>
+    <div id="obs3" class="aaa"></div>
+    <div id="obs4" class="aaa"></div>
+    <div id="obs5" class="aaa"></div>
+    <div id="obs6" class="aaa"></div>
+    <div id="obs7" class="aaa"></div>
+    <div id="obs8" class="aaa"></div>
+    <div id="bosslight"></div>
+    <div id="boss" class="aaa"></div>
+    <div id="bossy" class="aaa"></div>
+    <div id="explode"></div>
+    <div id="high">0</div>
+    <div id="spaceship"></div>
+    <div id="lavalight"></div>
+    <div id="lava"></div>
+    <div id="ded">GAME OVER</div>
+    <p id="newhighscore">New high score</p>
+    <div id="endgame"></div>
+    <a id="again" onClick="window.location.reload()">Again?</a>
+    <script src = "Keydrown.min.js"></script>   
+    <script src="root.js"></script>
+   
+</body>
+</html>
