@@ -4,6 +4,8 @@ var xxs = new Audio("hit.wav");
 var bossshot = new Audio('boss_shot.mp3');
 var audio = new Audio('thunder1.mp3');
 var ast = new Audio("asteroidhit1.wav");
+var arrow = document.getElementById("arrow");
+var jkz = document.getElementById("jk");
 function explodendie() {
     xxplode.play();
     flys.style.height = 0.1 + "px";
@@ -212,6 +214,7 @@ function myMove() {
         }
     }
     if (keycode === 75 && shit === 0) {
+        jkz.style.opacity = 0;
         if (timer < 200) {
             timer = 0;
             score = 0;
@@ -469,6 +472,7 @@ function boss() {
     }
     //di chuyển của con boss
     function moveto() {
+        arrow.style.opacity = 0;
         audiorun.play();
         audiostand.pause();
         audiostand.load();
@@ -585,6 +589,9 @@ function boss() {
                         bos.style.backgroundImage = "url('duckl.gif')";
                     }
                     if (bossshieldhealth <= 0) {
+                        arrow.style.opacity = 1;
+                        arrow.style.left = bossyx + 5 + "px";
+                        arrow.style.top = bossyy - 32 + "px";
                         audiostand.pause();
                         audiostand.load();
                         audiodam.play();
@@ -651,6 +658,9 @@ function boss() {
                     bossyy = posy - 48 - speedofboss;
                 }
                 if (bossshieldhealth <= 0) { //nếu như shield của boss bị vỡ, boss dừng lại, và cho khoảng thời gian hồi là 7s
+                    arrow.style.opacity = 1;
+                    arrow.style.left = bossyx + 5 + "px";
+                    arrow.style.top = bossyy - 32 + "px";
                     audiorun.pause();
                     audiorun.load();
                     audiodam.play();
