@@ -171,7 +171,7 @@ kd.W.down(function () {
                                                     if (xz <= x + 50)
                                                         if (yz + 10 >= fly) {
                                                             pickupz.play();
-                                                            numberofbullet += 5;                                                            
+                                                            numberofbullet += 4;                                                            
                                                             document.getElementById("chek").innerHTML = numberofbullet;
                                                             clearammofall();
                                                         }
